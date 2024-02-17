@@ -34,17 +34,14 @@
 
 
 <script>
-
-
-
     async function FillUpUpdateForm(id){
         document.getElementById('updateID').value=id;
         showLoader();
-        let res=await axios.post("/customer-by-id",{id:id})
+        let res=await axios.post("/customer-By-Id",{id:id})
         hideLoader();
         document.getElementById('customerNameUpdate').value=res.data['name'];
         document.getElementById('customerEmailUpdate').value=res.data['email'];
-        document.getElementById('customerMobileUpdate').value=res.data['mobile'];
+        document.getElementById('customerMobileUpdate').value=res.data['phone'];
     }
 
 
@@ -63,7 +60,7 @@
             errorToast("Customer Email Required !")
         }
         else if(customerMobile.length===0){
-            errorToast("Customer Mobile Required !")
+            errorToast("Customer Phone Required !")
         }
         else {
 
@@ -71,7 +68,7 @@
 
             showLoader();
 
-            let res = await axios.post("/update-customer",{name:customerName,email:customerEmail,mobile:customerMobile,id:updateID})
+            let res = await axios.post("/update-customer",{name:customerName,email:customerEmail,phone:customerMobile,id:updateID})
 
             hideLoader();
 

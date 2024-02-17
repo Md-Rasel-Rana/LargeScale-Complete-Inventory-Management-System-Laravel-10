@@ -38,9 +38,9 @@ getList();
 async function getList() {
 
 
-   // showLoader();
+    showLoader();
     let res=await axios.get("/list-category");
-   // hideLoader();
+    hideLoader();
 
     let tableList=$("#tableList");
     let tableData=$("#tableData");
@@ -53,15 +53,15 @@ async function getList() {
                     <td>${index+1}</td>
                     <td>${item['name']}</td>
                     <td>
-                        <button data-id="${item['id']}" class="btn editBtn btn-sm btn-outline-success">Edit</button>
-                        <button data-id="${item['id']}" class="btn deleteBtn btn-sm btn-outline-danger">Delete</button>
+                        <button data-id="${item['id']}" class="btn editBtn btn-sm btn-success">Edit</button>
+                        <button data-id="${item['id']}" class="btn deleteBtn btn-sm btn-danger">Delete</button>
                     </td>
                  </tr>`
         tableList.append(row)
     })
 
     $('.editBtn').on('click', async function () {
-           let id= $(this).data('id');
+           let id = $(this).data('id');
            await FillUpUpdateForm(id)
            $("#update-modal").modal('show');
     })

@@ -32,8 +32,11 @@ Route::post('/user-update',[UserController::class,'UpdateProfile'])->middleware(
 
 ////Customer web page or web 
 Route::get('/customerPage',[CustomerController::class,'CustomerPage'])->middleware([TokenVerificationMiddleware::class]);
-
-
+Route::post('/create-customer',[CustomerController::class,'customercreate'])->middleware([TokenVerificationMiddleware::class]);
+Route::get('/customer-list',[CustomerController::class,'customerlist'])->middleware([TokenVerificationMiddleware::class]);
+Route::post('/delete-customer',[CustomerController::class,'customerdelete'])->middleware([TokenVerificationMiddleware::class]);
+Route::post('/update-customer',[CustomerController::class,'updatecustomer'])->middleware([TokenVerificationMiddleware::class]);
+Route::post('/customer-By-Id',[CustomerController::class,'customerbyid'])->middleware([TokenVerificationMiddleware::class]);
 
 
 
@@ -41,6 +44,11 @@ Route::get('/customerPage',[CustomerController::class,'CustomerPage'])->middlewa
 
 ////Category web page or web 
 Route::get('/categoryPage',[CategoryController::class,'CategoryPage'])->middleware([TokenVerificationMiddleware::class]);
+Route::post('/create-category',[CategoryController::class,'createcategory'])->middleware([TokenVerificationMiddleware::class]);
+Route::get('/list-category',[CategoryController::class,'listcategory'])->middleware([TokenVerificationMiddleware::class]);
+Route::post('/delete-category',[CategoryController::class,'categorydelete'])->middleware([TokenVerificationMiddleware::class]);
+Route::post('/category-by-id',[CategoryController::class,'categorybyid'])->middleware([TokenVerificationMiddleware::class]);
+Route::post('/update-category',[CategoryController::class,'updatecategory'])->middleware([TokenVerificationMiddleware::class]);
 
 
 
@@ -49,6 +57,9 @@ Route::get('/categoryPage',[CategoryController::class,'CategoryPage'])->middlewa
 
 ////productPage web page or web 
 Route::get('/productPage',[ProductController::class,'ProductPage'])->middleware([TokenVerificationMiddleware::class]);
+Route::post('/create-product',[ProductController::class,'productcreate'])->middleware([TokenVerificationMiddleware::class]);
+Route::get('/list-product',[ProductController::class,'productlist'])->middleware([TokenVerificationMiddleware::class]);
+Route::post('/product-delete',[ProductController::class,'productdelete'])->middleware([TokenVerificationMiddleware::class]);
 
 
 

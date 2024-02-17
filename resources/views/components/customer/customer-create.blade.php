@@ -28,44 +28,37 @@
     </div>
 </div>
 
-
 <script>
-
-    async function Save() {
-
-        let customerName = document.getElementById('customerName').value;
-        let customerEmail = document.getElementById('customerEmail').value;
-        let customerMobile = document.getElementById('customerMobile').value;
-
-        if (customerName.length === 0) {
+  async function Save(){
+         let name = document.getElementById("customerName").value;
+         let email = document.getElementById("customerEmail").value;
+         let phone = document.getElementById("customerMobile").value;
+        if(name.length==0){
             errorToast("Customer Name Required !")
         }
-        else if(customerEmail.length===0){
-            errorToast("Customer Email Required !")
+       else if(email.length==0){
+            errorToast("Customer Email is  Required !")
         }
-        else if(customerMobile.length===0){
-            errorToast("Customer Mobile Required !")
+        else if(phone.length==0){
+            errorToast("Mobile Number is Required !")
         }
-        else {
-
-            document.getElementById('modal-close').click();
-
-         ////   showLoader();
-            let res = await axios.post("/create-customer",{name:customerName,email:customerEmail,mobile:customerMobile})
-          ////  hideLoader();
-
-            if(res.status===201){
-
-                successToast('Request completed');
-
-                document.getElementById("save-form").reset();
-
-                await getList();
-            }
-            else{
-                errorToast("Request fail !")
-            }
+        else{
+            document.getElementById("modal-close").click();
+           showLoader();
+            let response = await axios.post('/create-customer',{
+                name:name,
+                email:email,
+                phone:phone});
+               hideLoader();
+                if(response.status===201){
+                    successToast('Customer Create Successfully');
+                    document.getElementById("save-form").reset();
+                    getList();
+                }else{
+                    errorToast('Customer Create Failed');
+                }
         }
     }
+
 
 </script>

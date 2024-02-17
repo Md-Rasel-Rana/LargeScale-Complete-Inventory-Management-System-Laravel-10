@@ -36,9 +36,10 @@ getList();
 
 
 async function getList() {
-   // showLoader();
-    let res=await axios.get("/list-customer");
-  //  hideLoader();
+    showLoader();
+    let res=await axios.get("/customer-list");
+    //console.log(res.data);
+    hideLoader();
 
     let tableList=$("#tableList");
     let tableData=$("#tableData");
@@ -51,10 +52,10 @@ async function getList() {
                     <td>${index+1}</td>
                     <td>${item['name']}</td>
                     <td>${item['email']}</td>
-                    <td>${item['mobile']}</td>
+                    <td>${item['phone']}</td>
                     <td>
-                        <button data-id="${item['id']}" class="btn editBtn btn-sm btn-outline-success">Edit</button>
-                        <button data-id="${item['id']}" class="btn deleteBtn btn-sm btn-outline-danger">Delete</button>
+                        <button data-id="${item['id']}" class="btn editBtn btn-sm btn-success">Edit</button>
+                        <button data-id="${item['id']}" class="btn deleteBtn btn-sm btn-danger">Delete</button>
                     </td>
                  </tr>`
         tableList.append(row)
