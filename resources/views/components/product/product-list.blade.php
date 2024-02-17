@@ -38,9 +38,9 @@ getList();
 async function getList() {
 
 
-    showLoader();
+  //  showLoader();
     let res=await axios.get("/list-product");
-    hideLoader();
+    //hideLoader();
 
     let tableList=$("#tableList");
     let tableData=$("#tableData");

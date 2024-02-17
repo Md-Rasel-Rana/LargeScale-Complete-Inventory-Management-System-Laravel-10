@@ -130,10 +130,10 @@
 
 
         (async ()=>{
-          showLoader();
+         // showLoader();
           await  CustomerList();
           await ProductList();
-          hideLoader();
+         // hideLoader();
         })()
 
 
@@ -336,9 +336,9 @@
             }
             else{
 
-                showLoader();
+             //   showLoader();
                 let res=await axios.post("/invoice-create",Data)
-                hideLoader();
+               // hideLoader();
                 if(res.data===1){
                     window.location.href='/invoicePage'
                     successToast("Invoice Created");

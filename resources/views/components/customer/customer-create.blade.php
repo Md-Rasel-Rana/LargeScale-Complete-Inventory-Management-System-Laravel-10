@@ -50,9 +50,9 @@
 
             document.getElementById('modal-close').click();
 
-            showLoader();
+         ////   showLoader();
             let res = await axios.post("/create-customer",{name:customerName,email:customerEmail,mobile:customerMobile})
-            hideLoader();
+          ////  hideLoader();
 
             if(res.status===201){
 
