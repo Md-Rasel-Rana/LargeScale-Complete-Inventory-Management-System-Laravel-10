@@ -55,7 +55,7 @@ async function getList(){
         let row=`<tr>
                     <td>${index+1}</td>
                     <td>${item['customer']['name']}</td>
-                    <td>${item['customer']['mobile']}</td>
+                    <td>${item['customer']['phone']}</td>
                     <td>${item['total']}</td>
                     <td>${item['vat']}</td>
                     <td>${item['discount']}</td>
@@ -76,8 +76,9 @@ async function getList(){
 
     $('.deleteBtn').on('click',function () {
         let id= $(this).data('id');
-        document.getElementById('deleteID').value=id;
+         $('#deleteID').val(id);
         $("#delete-modal").modal('show');
+       
     })
 
     new DataTable('#tableData',{

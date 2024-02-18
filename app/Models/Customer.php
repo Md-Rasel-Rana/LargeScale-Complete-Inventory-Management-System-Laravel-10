@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'email', 'user_id', 'phone']; // 设置可填充的字段
+    protected $fillable = ['name', 'email', 'user_id', 'phone']; 
 }
