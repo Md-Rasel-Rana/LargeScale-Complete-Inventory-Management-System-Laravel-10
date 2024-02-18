@@ -41,6 +41,7 @@ class ProductController extends Controller
         $user_id=$request->header('id');
       return Product::where('user_id',$user_id,)->get();
     }
+
     public function productdelete(Request $request){
         $user_id=$request->header('id');
         $product_id=$request->input('id');
@@ -67,7 +68,7 @@ class ProductController extends Controller
             $img->move(public_path('uploads'),$img_name);
 
             // Delete Old File
-            $filePath=$request->input('file_path');
+            $filePath = $request->input('file_path');
             File::delete($filePath);
 
             // Update Product
@@ -92,7 +93,11 @@ class ProductController extends Controller
         }
     }
 
-
+    public function productbyid(Request $request){
+        $user_id=$request->header('id');
+        $product_id=$request->input('id');
+        return Product::where('user_id',$user_id)->where('id',$product_id)->first();
+    }
 
 
 

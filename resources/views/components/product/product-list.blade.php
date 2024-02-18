@@ -37,7 +37,6 @@ getList();
 
 async function getList() {
 
-
     showLoader();
     let res=await axios.get("/list-product");
     hideLoader();
@@ -64,8 +63,8 @@ async function getList() {
 
     $('.editBtn').on('click', async function () {
            let id= $(this).data('id');
-           let filePath= $(this).data('path');
-           await FillUpUpdateForm(id,filePath)
+           let filePath = $(this).data('path');
+           await FillUpUpdateForm(id,filePath);
            $("#update-modal").modal('show');
     })
 

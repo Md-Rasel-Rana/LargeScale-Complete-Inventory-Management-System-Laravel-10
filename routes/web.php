@@ -60,6 +60,8 @@ Route::get('/productPage',[ProductController::class,'ProductPage'])->middleware(
 Route::post('/create-product',[ProductController::class,'productcreate'])->middleware([TokenVerificationMiddleware::class]);
 Route::get('/list-product',[ProductController::class,'productlist'])->middleware([TokenVerificationMiddleware::class]);
 Route::post('/product-delete',[ProductController::class,'productdelete'])->middleware([TokenVerificationMiddleware::class]);
+Route::post('/product-by-id',[ProductController::class,'productbyid'])->middleware([TokenVerificationMiddleware::class]);
+Route::post('/update-product',[ProductController::class,'UpdateProduct'])->middleware([TokenVerificationMiddleware::class]);
 
 
 
@@ -84,3 +86,4 @@ Route::get('/salePage',[InvoiceController::class,'SalePage'])->middleware([Token
 
 ////InvoicePage web page or web 
 Route::get('/invoicePage',[InvoiceController::class,'InvoicePage'])->middleware([TokenVerificationMiddleware::class]);
+Route::post('/invoice-create',[InvoiceController::class,'invoiceCreate'])->middleware([TokenVerificationMiddleware::class]);

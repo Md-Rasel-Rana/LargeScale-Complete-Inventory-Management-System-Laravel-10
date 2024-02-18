@@ -6,7 +6,7 @@
                 <div class="shadow-sm h-100 bg-white rounded-3 p-3">
                     <div class="row">
                         <div class="col-8">
-                            <span class="text-bold text-dark">BILLED TO </span>
+                            <span class="text-bold text-dark"> BILLED TO </span>
                             <p class="text-xs mx-0 my-1">Name:  <span id="CName"></span> </p>
                             <p class="text-xs mx-0 my-1">Email:  <span id="CEmail"></span></p>
                             <p class="text-xs mx-0 my-1">User ID:  <span id="CId"></span> </p>
@@ -168,7 +168,7 @@
 
         function removeItem(index) {
             InvoiceItemList.splice(index,1);
-            ShowInvoiceItem()
+            ShowInvoiceItem();
         }
 
         function DiscountChange() {
@@ -183,7 +183,7 @@
             let discountPercentage=(parseFloat(document.getElementById('discountP').value));
 
            InvoiceItemList.forEach((item,index)=>{
-                Total=Total+parseFloat(item['sale_price'])
+                Total=Total+parseFloat(item['sale_price']);
             })
            
              if(discountPercentage===0){
@@ -225,15 +225,13 @@
            }
            else{
                let item = {product_name:PName,product_id:PId,qty:PQty,sale_price:PTotalPrice};
-               //console.log(item);
                InvoiceItemList.push(item);
-              // console.log(InvoiceItemList);
                $('#create-modal').modal('hide')
                ShowInvoiceItem();
            }
         }
 
-        function addModal(id,name,price) {
+        function addModal(id,name,price){
             document.getElementById('PId').value=id
             document.getElementById('PName').value=name
             document.getElementById('PPrice').value=price
@@ -242,7 +240,7 @@
 
 
         async function CustomerList(){
-            let res=await axios.get("/list-customer");
+            let res=await axios.get("/customer-list");
             let customerList=$("#customerList");
             let customerTable=$("#customerTable");
             customerTable.DataTable().destroy();
@@ -336,9 +334,9 @@
             }
             else{
 
-             //   showLoader();
+                showLoader();
                 let res=await axios.post("/invoice-create",Data)
-               // hideLoader();
+                hideLoader();
                 if(res.data===1){
                     window.location.href='/invoicePage'
                     successToast("Invoice Created");

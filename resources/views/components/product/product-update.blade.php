@@ -10,7 +10,6 @@
                         <div class="row">
                             <div class="col-12 p-1">
 
-
                                 <label class="form-label">Category</label>
                                 <select type="text" class="form-control form-select" id="productCategoryUpdate">
                                     <option value="">Select Category</option>
@@ -30,13 +29,12 @@
                                 <label class="form-label mt-2">Image</label>
                                 <input oninput="oldImg.src=window.URL.createObjectURL(this.files[0])"  type="file" class="form-control" id="productImgUpdate">
 
-                                <input type="text" class="d-none" id="updateID">
+                                <input type="text" class="" id="updateID">
                                 <input type="text" class="d-none" id="filePath">
-
 
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </form>
             </div>
 
@@ -72,7 +70,6 @@
 
         showLoader();
         await UpdateFillCategoryDropDown();
-
         let res=await axios.post("/product-by-id",{id:id})
         hideLoader();
 
@@ -118,7 +115,7 @@
             formData.append('id',updateID)
             formData.append('name',productNameUpdate)
             formData.append('price',productPriceUpdate)
-            formData.append('unit',productNameUpdate)
+            formData.append('unit',productUnitUpdate)
             formData.append('category_id',productCategoryUpdate)
             formData.append('file_path',filePath)
 
