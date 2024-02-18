@@ -88,8 +88,6 @@
             invoiceList.append(row)
         });
 
-
-
         $("#details-modal").modal('show')
     }
 
